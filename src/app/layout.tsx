@@ -10,7 +10,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Digital Agency | Futuristic Performance Marketing",
+  title: "RVM ScaleCraft | Futuristic Performance Marketing",
   description: "World-class futuristic digital marketing and performance marketing agency. We help brands grow using AI, performance marketing, and creative strategies.",
   keywords: ["digital marketing", "performance marketing", "AI marketing", "SEO", "agency", "futuristic"],
 };
