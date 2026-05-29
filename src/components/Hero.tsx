@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import Link from 'next/link';
 import styles from './Hero.module.css';
 
 export default function Hero() {
@@ -34,7 +35,7 @@ export default function Hero() {
             className={styles.badge}
           >
             <Sparkles size={16} className={styles.badgeIcon} />
-            <span>Voted #1 Agency 2026</span>
+            <span>Premium Performance Agency</span>
           </motion.div>
 
           <motion.h1
@@ -43,8 +44,8 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className={styles.title}
           >
-            Scale Your Brand With <br />
-            <span className="text-gradient">AI-Powered</span> Digital Marketing
+            We Don't Just Post, <br />
+            <span className="text-gradient">We Grow Brands.</span>
           </motion.h1>
 
           <motion.p
@@ -53,7 +54,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className={styles.description}
           >
-            We help brands grow using performance marketing, branding, paid ads, SEO, social media, and creative strategies. Experience the future of growth.
+            We help brands generate leads, increase sales, and build authority with content and performance marketing. Strategy, Brand, Growth, Results.
           </motion.p>
 
           <motion.div
@@ -62,12 +63,12 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className={styles.actions}
           >
-            <button className={`${styles.primaryBtn} magnetic-btn`}>
+            <Link href="#contact" className={`${styles.primaryBtn} magnetic-btn`}>
               Get Started <ArrowRight size={18} />
-            </button>
-            <button className={`${styles.secondaryBtn} magnetic-btn`}>
+            </Link>
+            <a href="tel:+919021943080" className={`${styles.secondaryBtn} magnetic-btn`}>
               Book Free Consultation
-            </button>
+            </a>
           </motion.div>
         </div>
 
@@ -78,7 +79,7 @@ export default function Hero() {
             style={{ y: y1 }}
           >
             <div className={styles.cardHeader}>
-              <div className={styles.circle} style={{ background: '#00f0ff' }} />
+              <div className={styles.circle} style={{ background: '#ff0b1a' }} />
               <span>ROAS</span>
             </div>
             <div className={styles.cardValue}>+340%</div>
@@ -95,7 +96,7 @@ export default function Hero() {
             style={{ y: y2 }}
           >
             <div className={styles.cardHeader}>
-              <div className={styles.circle} style={{ background: '#8b00ff' }} />
+              <div className={styles.circle} style={{ background: '#900000' }} />
               <span>Leads Generated</span>
             </div>
             <div className={styles.cardValue}>12,500+</div>

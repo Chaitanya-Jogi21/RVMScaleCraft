@@ -7,15 +7,15 @@
   --text-primary: #ffffff;
   --text-secondary: #a1a1aa;
   
-  /* Electric Blue to Purple Neon */
-  --accent-blue: #00f0ff;
-  --accent-purple: #8b00ff;
+  /* RVM Scale Craft Theme (Red/Crimson) */
+  --accent-blue: #ff0b1a; /* Vibrant Red */
+  --accent-purple: #900000; /* Deep Crimson */
   --accent-gradient: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
   
   --glass-bg: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  --glow-shadow: 0 0 20px rgba(0, 240, 255, 0.3), 0 0 40px rgba(139, 0, 255, 0.2);
+  --glow-shadow: 0 0 20px rgba(255, 11, 26, 0.3), 0 0 40px rgba(144, 0, 0, 0.2);
 
   --font-primary: 'Outfit', sans-serif;
   
@@ -58,7 +58,7 @@ button {
 }
 
 ::selection {
-  background: rgba(0, 240, 255, 0.3);
+  background: rgba(255, 11, 26, 0.3);
   color: #fff;
 }
 

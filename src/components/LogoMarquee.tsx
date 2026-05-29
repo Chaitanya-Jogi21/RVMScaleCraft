@@ -3,7 +3,7 @@
 import styles from './LogoMarquee.module.css';
 
 const clients = [
-  "Microsoft", "Google", "Amazon", "Tesla", "Meta", "Netflix", "Adobe", "Spotify"
+  "Tea & Talk", "Damahe Construction", "Blue Sapphire", "Tender Singh", "Tanyy Studios", "Rishiverse", "Elevate E-com", "Nexa"
 ];
 
 export default function LogoMarquee() {

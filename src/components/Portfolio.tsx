@@ -3,37 +3,38 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import Link from 'next/link';
 import styles from './Portfolio.module.css';
 
-const categories = ['All', 'Performance Marketing', 'Branding', 'Web Development'];
+const categories = ['All', 'Performance Marketing', 'Content Production', 'Social Media Management'];
 
 const projects = [
   {
     id: 1,
-    title: 'NeonX Growth Engine',
+    title: 'Tea & Talk',
     category: 'Performance Marketing',
-    stats: '+450% ROAS',
+    stats: '2x Footfall',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
   },
   {
     id: 2,
-    title: 'Aura Fintech Branding',
-    category: 'Branding',
-    stats: 'Award Winning',
+    title: 'Damahe Construction',
+    category: 'Social Media Management',
+    stats: 'Premium Positioning',
     image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800',
   },
   {
     id: 3,
-    title: 'Nexus SaaS Platform',
-    category: 'Web Development',
-    stats: '1M+ Users',
+    title: 'Blue Sapphire',
+    category: 'Content Production',
+    stats: 'Increased Bookings',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
   },
   {
     id: 4,
-    title: 'Vortex Ad Campaigns',
+    title: 'Tender Singh',
     category: 'Performance Marketing',
-    stats: '10k Leads',
+    stats: 'Predictable Leads',
     image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800',
   },
 ];
@@ -93,9 +94,9 @@ export default function Portfolio() {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={project.image} alt={project.title} className={styles.projectImage} />
                   <div className={styles.overlay}>
-                    <button className={styles.viewBtn}>
+                    <Link href="#contact" className={styles.viewBtn}>
                       View Case Study <ArrowUpRight size={20} />
-                    </button>
+                    </Link>
                   </div>
                 </div>
                 <div className={styles.projectInfo}>

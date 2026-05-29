@@ -7,37 +7,37 @@ import styles from './Testimonials.module.css';
 const testimonials = [
   {
     id: 1,
-    name: 'Sarah Jenkins',
-    role: 'CMO, TechFlow',
-    content: 'RishiVerse completely transformed our acquisition strategy. We saw a 3x increase in qualified leads within the first 60 days.',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150',
+    name: 'Ashit Thul',
+    role: 'Owner, Tea & Talk',
+    content: 'Our footfall doubled within 2 months. The reels they created actually brought real customers walking in — not just likes.',
+    image: 'https://ui-avatars.com/api/?name=Ashit+Thul&background=ff0b1a&color=fff',
   },
   {
     id: 2,
-    name: 'David Chen',
-    role: 'Founder, Lumina',
-    content: 'The branding and web development they delivered was lightyears ahead of what we expected. Truly a futuristic approach to digital presence.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150',
+    name: 'Dev Damahe',
+    role: 'Founder, Damahe Construction',
+    content: 'We started getting consistent project inquiries from Instagram for the first time. Their content positioned us as a premium brand.',
+    image: 'https://ui-avatars.com/api/?name=Dev+Damahe&background=ff0b1a&color=fff',
   },
   {
     id: 3,
-    name: 'Emily Ross',
-    role: 'VP Marketing, Nexa',
-    content: 'Their AI-driven performance marketing strategies are unmatched. They scaled our ROAS seamlessly while lowering our CPA.',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150',
+    name: 'Shubham Londhe',
+    role: 'Founder, Blue Sapphire',
+    content: 'Bookings jumped noticeably after their content strategy kicked in. Quality of shoots and edits is genuinely top-tier.',
+    image: 'https://ui-avatars.com/api/?name=Shubham+Londhe&background=ff0b1a&color=fff',
   },
   {
     id: 4,
-    name: 'Michael Torres',
-    role: 'CEO, Elevate E-com',
-    content: 'If you want a team that understands Gen-Z culture and cutting-edge tech, look no further. Best agency we have ever worked with.',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150',
+    name: 'Priyanshu Singh',
+    role: 'Founder, Tender Singh',
+    content: 'Lead flow became predictable. Their performance marketing setup brought us qualified leads at a much lower cost.',
+    image: 'https://ui-avatars.com/api/?name=Priyanshu+Singh&background=ff0b1a&color=fff',
   },
 ];
 
 export default function Testimonials() {
   return (
-    <section className={`section ${styles.testimonialsSection}`}>
+    <section id="testimonials" className={`section ${styles.testimonialsSection}`}>
       <div className="container">
         <motion.div 
           className={styles.header}
@@ -46,10 +46,10 @@ export default function Testimonials() {
           viewport={{ once: true }}
         >
           <h2 className="section-title">
-            Client <span className="text-gradient">Success</span>
+            Brands growing with <span className="text-gradient">RVM Scale Craft</span>
           </h2>
           <p className="section-subtitle">
-            Don't just take our word for it. Hear from the brands we've scaled.
+            Real founders. Real outcomes. Here's what they say.
           </p>
         </motion.div>
       </div>
@@ -62,7 +62,7 @@ export default function Testimonials() {
               <Quote className={styles.quoteIcon} size={40} />
               <div className={styles.stars}>
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={16} fill="#00f0ff" color="#00f0ff" />
+                  <Star key={i} size={16} fill="#ff0b1a" color="#ff0b1a" />
                 ))}
               </div>
               <p className={styles.content}>"{test.content}"</p>
@@ -82,7 +82,7 @@ export default function Testimonials() {
               <Quote className={styles.quoteIcon} size={40} />
               <div className={styles.stars}>
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={16} fill="#00f0ff" color="#00f0ff" />
+                  <Star key={i} size={16} fill="#ff0b1a" color="#ff0b1a" />
                 ))}
               </div>
               <p className={styles.content}>"{test.content}"</p>

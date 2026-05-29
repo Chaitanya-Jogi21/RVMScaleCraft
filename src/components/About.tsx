@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
+import Link from 'next/link';
 import styles from './About.module.css';
 
 const stats = [
@@ -51,18 +52,19 @@ export default function About() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="section-title">
-            Redefining <br />
-            <span className="text-gradient">Digital Growth</span>
+            Why <br />
+            <span className="text-gradient">Choose Us</span>
           </h2>
           <p className={styles.description}>
-            RishiVerse is a premier digital marketing agency that merges high-end creative design with ruthless performance marketing. We don't just run ads; we engineer predictable growth engines for ambitious brands.
+            We're not just another agency. We're a growth partner obsessed with one thing — making your business win. Every move is backed by numbers, never gut feel or guesswork.
           </p>
           <p className={styles.description}>
-            Our team of elite strategists, designers, and media buyers use AI-driven insights to stay lightyears ahead of the competition.
+            <strong>Creative + Performance:</strong> Both worlds under one roof — no agency-jumping needed. <br />
+            <strong>Content That Sells:</strong> Designed for conversion, not just for likes and pretty feeds.
           </p>
-          <button className={`${styles.ctaBtn} magnetic-btn`}>
+          <Link href="#portfolio" className={`${styles.ctaBtn} magnetic-btn`}>
             Discover Our Story
-          </button>
+          </Link>
         </motion.div>
 
         <motion.div 

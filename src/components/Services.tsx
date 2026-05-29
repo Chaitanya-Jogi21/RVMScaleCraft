@@ -2,19 +2,19 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Target, Megaphone, Search, Share2, PenTool, Layout, Cpu, FileText, Zap } from 'lucide-react';
+import { Target, Megaphone, Search, Share2, PenTool, Layout, Cpu, FileText, Zap, Camera } from 'lucide-react';
 import styles from './Services.module.css';
 
 const services = [
-  { id: 1, title: 'Performance Marketing', desc: 'Data-driven campaigns to maximize your ROI.', icon: Target },
-  { id: 2, title: 'Meta & Google Ads', desc: 'High-converting ad creatives and media buying.', icon: Megaphone },
-  { id: 3, title: 'Search Engine Optimization', desc: 'Dominate search results with advanced SEO strategies.', icon: Search },
-  { id: 4, title: 'Social Media Management', desc: 'Build a loyal community around your brand.', icon: Share2 },
-  { id: 5, title: 'Brand Identity', desc: 'Stand out with premium, futuristic branding.', icon: PenTool },
-  { id: 6, title: 'Web Development', desc: 'High-performance, interactive websites.', icon: Layout },
-  { id: 7, title: 'AI Marketing', desc: 'Leverage AI to automate and scale growth.', icon: Cpu },
-  { id: 8, title: 'Content Strategy', desc: 'Engaging content that converts viewers into customers.', icon: FileText },
-  { id: 9, title: 'Lead Generation', desc: 'High-quality lead funnels for B2B and B2C.', icon: Zap },
+  { id: 1, title: 'Performance Marketing', desc: 'Predictable lead flow at lower CPL via Meta Ads & Funnels.', icon: Target },
+  { id: 2, title: 'Content Production', desc: 'Hook-driven reels and scroll-stopping ad creatives.', icon: Layout },
+  { id: 3, title: 'Professional Shoots', desc: 'Cinematic brand and product shoots optimized for social.', icon: Camera },
+  { id: 4, title: 'Social Media Management', desc: 'Content calendars, daily posting & active community building.', icon: Share2 },
+  { id: 5, title: 'YouTube Management', desc: 'End-to-end channel strategy, SEO & retention editing.', icon: Search },
+  { id: 6, title: 'Influencer Collabs', desc: 'Vetted creator selection and measurable campaign tracking.', icon: Megaphone },
+  { id: 7, title: 'Branding & Strategy', desc: 'Sharp positioning, visual identity & premium messaging frameworks.', icon: PenTool },
+  { id: 8, title: 'Google Business Optimization', desc: 'Full GMB optimization for top-3 map rankings and walk-ins.', icon: Zap },
+  { id: 9, title: 'Analytics & Optimization', desc: 'Full tracking setup, weekly insights & continuous CRO testing.', icon: Cpu },
 ];
 
 const containerVariants = {

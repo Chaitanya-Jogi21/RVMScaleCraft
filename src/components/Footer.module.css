@@ -145,30 +145,54 @@
 
 .linksGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
 }
 
 .linkGroup h4 {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   color: var(--text-primary);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
 }
 
-.linkGroup ul {
+.contactList {
   display: flex;
   flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
   gap: 1rem;
-}
-
-.linkGroup a {
   color: var(--text-secondary);
-  transition: color var(--transition-fast);
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
-.linkGroup a:hover {
-  color: var(--accent-blue);
+.contactIcon {
+  color: #ff0b1a;
+  flex-shrink: 0;
+}
+
+.followBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.followBtn:hover {
+  background: rgba(255, 11, 26, 0.1);
+  border-color: rgba(255, 11, 26, 0.3);
+  transform: translateY(-2px);
 }
 
 .bottomBar {

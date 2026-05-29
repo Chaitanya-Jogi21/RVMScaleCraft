@@ -11,7 +11,7 @@ const navLinks = [
   { name: 'Services', path: '#services' },
   { name: 'About', path: '#about' },
   { name: 'Portfolio', path: '#portfolio' },
-  { name: 'Case Studies', path: '#case-studies' },
+  { name: 'Pricing', path: '#pricing' },
   { name: 'Blog', path: '#blog' },
 ];
 
@@ -31,7 +31,7 @@ export default function Navbar() {
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.navContainer}`}>
         <Link href="/" className={styles.logo}>
-          RISHI<span className="text-gradient">VERSE</span>
+          <img src="/logo.png" alt="RVM Scale Craft" style={{ height: '55px', objectFit: 'contain' }} />
         </Link>
 
         {/* Desktop Nav */}
@@ -46,9 +46,9 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <button className={`${styles.ctaButton} magnetic-btn`}>
+          <Link href="#contact" className={`${styles.ctaButton} magnetic-btn`}>
             Start Project
-          </button>
+          </Link>
         </nav>
 
         {/* Mobile Menu Toggle */}
@@ -93,9 +93,9 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 }}
                 >
-                  <button className={`${styles.ctaButton} ${styles.mobileCta}`}>
+                  <Link href="#contact" className={`${styles.ctaButton} ${styles.mobileCta}`} onClick={() => setMobileMenuOpen(false)}>
                     Start Project
-                  </button>
+                  </Link>
                 </motion.li>
               </ul>
             </nav>

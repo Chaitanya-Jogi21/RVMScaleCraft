@@ -5,6 +5,11 @@ import { Send, Mail, MapPin, Phone } from 'lucide-react';
 import styles from './Contact.module.css';
 
 export default function Contact() {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    window.open('https://wa.me/919021943080', '_blank');
+    (e.target as HTMLFormElement).reset();
+  };
   return (
     <section id="contact" className={`section ${styles.contactSection}`}>
       <div className={`container ${styles.container}`}>
@@ -29,7 +34,7 @@ export default function Contact() {
               </div>
               <div>
                 <h4>Email Us</h4>
-                <p>hello@rishiverse.com</p>
+                <p>rishiversemedia@gmail.com</p>
               </div>
             </div>
             
@@ -39,7 +44,7 @@ export default function Contact() {
               </div>
               <div>
                 <h4>Call Us</h4>
-                <p>+1 (800) 123-4567</p>
+                <p>+91 90219 43080</p>
               </div>
             </div>
             
@@ -49,7 +54,7 @@ export default function Contact() {
               </div>
               <div>
                 <h4>Visit Us</h4>
-                <p>100 Cybernetic Way, Neo City, TX 75001</p>
+                <p>Nagpur, Maharashtra</p>
               </div>
             </div>
           </div>
@@ -62,7 +67,7 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
         >
-          <form className={`${styles.form} glass`}>
+          <form className={`${styles.form} glass`} onSubmit={handleSubmit}>
             <div className={styles.inputGroup}>
               <input type="text" id="name" required placeholder=" " />
               <label htmlFor="name">Full Name</label>
@@ -87,7 +92,7 @@ export default function Contact() {
               <div className={styles.inputBorder} />
             </div>
 
-            <button type="button" className={`${styles.submitBtn} magnetic-btn`}>
+            <button type="submit" className={`${styles.submitBtn} magnetic-btn`}>
               Send Message <Send size={18} />
             </button>
           </form>
