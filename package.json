@@ -12,7 +12,6 @@
     "@studio-freight/lenis": "^1.0.42",
     "@types/nodemailer": "^8.0.0",
     "clsx": "^2.1.1",
-    "deep-email-validator": "^0.1.27",
     "framer-motion": "^12.38.0",
     "gsap": "^3.15.0",
     "lucide-react": "^1.14.0",

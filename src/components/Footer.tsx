@@ -36,9 +36,8 @@ export default function Footer() {
         },
         body: JSON.stringify({ 
           email,
-          _subject: "🚀 New Subscriber Lead from Website",
-          _template: "box",
-          Message: `Hello RishiVerse Team,\n\nYou have received a new newsletter/service inquiry subscriber from the website.\n\nSubscriber Email:\n${email}\n\nInterested In:\nDigital Marketing & Performance Marketing Services\n\nSource:\nWebsite Newsletter Subscription Form\n\nPlease connect with this potential client for further communication.\n\nRegards,\nRishiVerse Website`
+          _subject: "New Website Subscription Lead",
+          Message: `Hello Team,\n\nYou have received a new newsletter/service inquiry subscriber from the website.\n\nSubscriber Email:\n${email}\n\nInterested In:\nDigital Marketing & Performance Marketing Services\n\nSource:\nWebsite Newsletter Subscription Form\n\nPlease connect with this potential client for further communication.\n\nRegards,\nWebsite System`
         })
       });
       
@@ -86,7 +85,7 @@ export default function Footer() {
                 {status === 'loading' ? 'Sending...' : 'Subscribe'} <ArrowRight size={16} />
               </button>
             </form>
-            {status === 'success' && <p style={{ color: '#4ade80', marginTop: '0.5rem', fontSize: '0.9rem' }}>Thank you for subscribing! Our team will contact you soon.</p>}
+            {status === 'success' && <p style={{ color: '#4ade80', marginTop: '0.5rem', fontSize: '0.9rem' }}>Thank you for subscribing! Our team will connect with you soon.</p>}
             {status === 'error' && <p style={{ color: '#f87171', marginTop: '0.5rem', fontSize: '0.9rem' }}>{errorMsg}</p>}
           </motion.div>
         </div>

@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server';
-import validate from 'deep-email-validator';
 import nodemailer from 'nodemailer';
 
 export async function POST(req: Request) {
@@ -7,17 +6,9 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { email, _subject, Message } = body;
 
-    // 1. Deep Email Validation
-    const validationResult = await validate({
-      email: email,
-      validateRegex: true,
-      validateMx: true,
-      validateTypo: true,
-      validateDisposable: true,
-      validateSMTP: false
-    });
-
-    if (!validationResult.valid) {
+    // 1. Basic Email Validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email)) {
       return NextResponse.json({ 
         error: 'Please enter a valid email address'
       }, { status: 400 });
