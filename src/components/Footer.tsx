@@ -13,7 +13,7 @@ export default function Footer() {
   const [errorMsg, setErrorMsg] = useState('');
 
   const validateEmail = (email: string) => {
-    const re = /\S+@\S+\.\S+/;
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
   };
 
@@ -41,16 +41,16 @@ export default function Footer() {
         })
       });
       
+      const data = await res.json();
       if (res.ok) {
         setStatus('success');
         setEmail('');
       } else {
-        const data = await res.json();
         throw new Error(data.error || 'Failed to subscribe');
       }
     } catch (error: any) {
       setStatus('error');
-      setErrorMsg('Please enter a valid email address');
+      setErrorMsg(error.message || 'An unexpected error occurred. Please try again.');
     }
   };
 

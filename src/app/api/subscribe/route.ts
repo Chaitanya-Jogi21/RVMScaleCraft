@@ -34,7 +34,7 @@ export async function POST(req: Request) {
     // 4. Send Email directly using Nodemailer
     const mailOptions = {
       from: `"Website Leads" <${process.env.EMAIL_USER}>`,
-      to: 'rishiversemedia@gmail.com',
+      to: process.env.EMAIL_USER,
       replyTo: email,
       subject: _subject || "🚀 New Subscriber Lead from Website",
       text: Message || `New subscriber: ${email}`
