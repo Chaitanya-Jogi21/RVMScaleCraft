@@ -15,6 +15,10 @@ export async function POST(req: Request) {
     }
 
     // 2. Ensure environment variables are configured
+    console.log('Debug - EMAIL_USER:', process.env.EMAIL_USER);
+    console.log('Debug - EMAIL_PASS length:', process.env.EMAIL_PASS ? process.env.EMAIL_PASS.length : 0);
+    console.log('Debug - EMAIL_PASS starts with:', process.env.EMAIL_PASS ? process.env.EMAIL_PASS.substring(0, 4) : 'none');
+
     if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
       console.error('Missing EMAIL_USER or EMAIL_PASS environment variables.');
       return NextResponse.json({ 
