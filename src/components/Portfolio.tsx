@@ -33,7 +33,32 @@ const projects: Project[] = [
     title: 'Tea & Talk',
     category: 'Performance Marketing',
     stats: '2x Footfall',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
+    isLogoCard: true,
+    logo: '/tea-talk-logo.png',
+    caseStudy: {
+      client: 'Tea & Talk',
+      industry: 'Cafe & Food Business',
+      location: 'Dighori, Nagpur',
+      overview: 'Tea & Talk is a budget-friendly cafe located in Dighori, Nagpur and is a franchise branch of Tea & Talk. The cafe offers a comfortable atmosphere with affordable food and beverages, making it a popular destination for local customers.',
+      challenge: 'The cafe had limited social media presence, low brand awareness, and needed increased footfall from genuine local customers.',
+      solution: [
+        'Instagram page management and optimization',
+        'Social media branding and content strategy',
+        'Profile polishing and professional presentation',
+        'Local audience targeting',
+        'Brand awareness campaigns',
+        'Customer engagement campaigns',
+        'Footfall-focused marketing strategy',
+      ],
+      goal: 'Establish Tea & Talk as the most recognized and preferred cafe in Dighori through digital marketing, social media branding, and increased customer engagement.',
+      results: [
+        'Improved social media presence',
+        'Better local brand recognition',
+        'Increased engagement and followers',
+        'Higher customer footfall',
+        'Stronger brand positioning in the Dighori area',
+      ],
+    },
   },
   {
     id: 2,
@@ -221,8 +246,12 @@ export default function Portfolio() {
               {/* Modal Header */}
               <div className={styles.modalHeader}>
                 <div className={styles.modalLogoArea}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={selectedProject.logo} alt={selectedProject.title} className={styles.modalLogo} />
+                  {selectedProject.logo ? (
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img src={selectedProject.logo} alt={selectedProject.title} className={styles.modalLogo} />
+                  ) : (
+                    <h3 className={styles.modalHeaderTitle}>{selectedProject.title}</h3>
+                  )}
                 </div>
                 <button
                   className={styles.closeBtn}
