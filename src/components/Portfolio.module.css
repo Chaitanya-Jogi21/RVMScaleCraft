@@ -525,3 +525,26 @@
   justify-content: center;
   color: #ff0b1a;
 }
+
+.notesBlock {
+  margin-top: 2rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(212, 175, 55, 0.04);
+  border-left: 3px solid #d4af37;
+  border-radius: 4px 12px 12px 4px;
+}
+
+.notesTitle {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #d4af37;
+  margin-bottom: 0.5rem;
+}
+
+.notesText {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}

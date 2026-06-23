@@ -24,6 +24,7 @@ interface Project {
     solution: string[];
     goal: string;
     results: string[];
+    notes?: string;
   };
 }
 
@@ -161,6 +162,39 @@ const projects: Project[] = [
         'Growth in customer inquiries and footfall',
         'Stronger positioning as a leading restaurant in Umred',
       ],
+    },
+  },
+  {
+    id: 6,
+    title: 'Metro Arch Studio',
+    category: 'Performance Marketing',
+    stats: 'Qualified Lead Generation',
+    isLogoCard: true,
+    logo: '/metro-arch-logo.png',
+    caseStudy: {
+      client: 'Metro Arch Studio',
+      industry: 'Architecture & Interior Design',
+      location: 'Nagpur, Maharashtra',
+      overview: 'Metro Arch Studio is a Nagpur-based architecture and design firm known for its premium architectural concepts, creative planning, and modern design solutions. They have a strong client base and deliver high-quality residential and commercial design projects.',
+      challenge: 'Despite having quality work and satisfied clients, the company had limited social media presence and low online visibility. Their expertise was not being effectively showcased to potential customers online.',
+      solution: [
+        'Social media branding and positioning',
+        'Instagram page optimization',
+        'Premium content strategy',
+        'Creative design showcase campaigns',
+        'Lead generation campaigns',
+        'Performance marketing',
+        'Audience targeting and awareness campaigns',
+      ],
+      goal: 'Generate genuine leads, strengthen online presence, showcase premium projects, and demonstrate the effectiveness of our marketing services during the trial period.',
+      results: [
+        'Improved professional online presence',
+        'Better audience engagement',
+        'Increased brand visibility',
+        'Qualified lead generation through ad campaigns',
+        'Strong foundation for long-term digital growth',
+      ],
+      notes: 'Metro Arch Studio joined for a short trial period to evaluate our creative capabilities and lead generation performance. The objective was to demonstrate measurable results and establish confidence for a long-term partnership.',
     },
   },
 ];
@@ -434,6 +468,14 @@ export default function Portfolio() {
                     ))}
                   </div>
                 </div>
+
+                {/* Additional Notes */}
+                {selectedProject.caseStudy.notes && (
+                  <div className={styles.notesBlock}>
+                    <h4 className={styles.notesTitle}>Additional Notes</h4>
+                    <p className={styles.notesText}>{selectedProject.caseStudy.notes}</p>
+                  </div>
+                )}
               </div>
             </motion.div>
           </motion.div>
