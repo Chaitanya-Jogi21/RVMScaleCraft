@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, X, MapPin, Building2, Target, CheckCircle2, Lightbulb, TrendingUp } from 'lucide-react';
+import { ArrowUpRight, X, MapPin, Building2, Target, CheckCircle2, Lightbulb, TrendingUp, ArrowRight } from 'lucide-react';
 import styles from './Portfolio.module.css';
 
 const categories = ['All', 'Performance Marketing', 'Content Production', 'Social Media Management'];
@@ -131,15 +131,52 @@ const projects: Project[] = [
       ],
     },
   },
+  {
+    id: 5,
+    title: 'RRR Restaurant',
+    category: 'Performance Marketing',
+    stats: 'Increased Footfall & Profitability',
+    isLogoCard: true,
+    logo: '/rrr-restaurant-logo.png',
+    caseStudy: {
+      client: 'RRR Restaurant',
+      industry: 'Restaurant & Hospitality',
+      location: 'Umred, Maharashtra',
+      overview: 'RRR Restaurant is a popular restaurant based in Umred, known for its good ambience, quality food, great taste, and affordable pricing. Despite offering a good customer experience, the business was struggling with profitability and had very limited social media presence.',
+      challenge: 'Low online visibility, weak social media presence, limited customer reach, lack of consistent branding and marketing, and difficulty attracting new customers regularly.',
+      solution: [
+        'Instagram page management and optimization',
+        'Professional social media branding',
+        'Content creation and engagement strategy',
+        'Local awareness campaigns',
+        'Customer acquisition campaigns',
+        'Restaurant-focused marketing strategy',
+        'Performance marketing and audience targeting',
+      ],
+      goal: 'Position RRR Restaurant as one of the most recognized and preferred restaurants in Umred, increase customer footfall, build a loyal customer base, and strengthen brand visibility through digital marketing and social media branding.',
+      results: [
+        'Improved social media presence',
+        'Increased local brand awareness',
+        'Better audience engagement',
+        'Growth in customer inquiries and footfall',
+        'Stronger positioning as a leading restaurant in Umred',
+      ],
+    },
+  },
 ];
 
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const filteredProjects = projects.filter(
     (project) => activeCategory === 'All' || project.category === activeCategory
   );
+
+  const displayedProjects = activeCategory === 'All' && !isExpanded
+    ? filteredProjects.slice(0, 4)
+    : filteredProjects;
 
   const handleCardClick = (project: Project) => {
     if (project.caseStudy) {
@@ -182,7 +219,7 @@ export default function Portfolio() {
 
           <motion.div layout className={styles.grid}>
             <AnimatePresence>
-              {filteredProjects.map((project) => (
+              {displayedProjects.map((project) => (
                 <motion.div
                   key={project.id}
                   layout
@@ -247,6 +284,27 @@ export default function Portfolio() {
               ))}
             </AnimatePresence>
           </motion.div>
+
+          {activeCategory === 'All' && filteredProjects.length > 4 && !isExpanded && (
+            <div className={styles.loadMoreContainer}>
+              <motion.button
+                whileHover="hover"
+                className={styles.loadMoreBtn}
+                onClick={() => setIsExpanded(true)}
+              >
+                Load More
+                <motion.span
+                  className={styles.arrowWrapper}
+                  variants={{
+                    hover: { x: 5 }
+                  }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+                >
+                  <ArrowRight size={18} />
+                </motion.span>
+              </motion.button>
+            </div>
+          )}
         </div>
       </section>
 
