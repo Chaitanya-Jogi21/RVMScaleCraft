@@ -3,7 +3,7 @@
 import styles from './LogoMarquee.module.css';
 
 const clients = [
-  "Tea & Talk", "Damahe Construction", "Blue Sapphire", "Tender Singh", "Tanyy Studios", "Rishiverse", "Elevate E-com", "Nexa"
+  "Tea & Talk", "Damahe Construction", "Blue Sapphire", "Elevate E-com", "Tanyy Studios", "Rishiverse", "Elevate E-com", "Nexa"
 ];
 
 export default function LogoMarquee() {

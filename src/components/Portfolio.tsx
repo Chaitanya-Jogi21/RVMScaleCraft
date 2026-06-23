@@ -2,13 +2,32 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
-import Link from 'next/link';
+import { ArrowUpRight, X, MapPin, Building2, Target, CheckCircle2, Lightbulb, TrendingUp } from 'lucide-react';
 import styles from './Portfolio.module.css';
 
 const categories = ['All', 'Performance Marketing', 'Content Production', 'Social Media Management'];
 
-const projects = [
+interface Project {
+  id: number;
+  title: string;
+  category: string;
+  stats: string;
+  image?: string;
+  logo?: string;
+  isLogoCard?: boolean;
+  caseStudy?: {
+    client: string;
+    industry: string;
+    location: string;
+    overview: string;
+    challenge: string;
+    solution: string[];
+    goal: string;
+    results: string[];
+  };
+}
+
+const projects: Project[] = [
   {
     id: 1,
     title: 'Tea & Talk',
@@ -20,8 +39,33 @@ const projects = [
     id: 2,
     title: 'Damahe Construction',
     category: 'Social Media Management',
-    stats: 'Premium Positioning',
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800',
+    stats: 'Consistent Lead Generation',
+    isLogoCard: true,
+    logo: '/damahe-logo.png',
+    caseStudy: {
+      client: 'Damahe Construction',
+      industry: 'Construction & Infrastructure',
+      location: 'Nagpur, Maharashtra',
+      overview: 'Damahe Construction is a Nagpur-based construction company that specializes in building residential and commercial structures through contract-based projects across Nagpur and nearby areas. Their focus is delivering quality construction at affordable budgets.',
+      challenge: 'The brand had limited social media presence, low online visibility, and was not generating consistent leads through digital channels.',
+      solution: [
+        'Instagram page management and optimization',
+        'Professional brand positioning',
+        'Content creation and page polishing',
+        'Social media growth strategy',
+        'Lead generation campaigns',
+        'Meta Ads campaign management',
+        'Brand awareness and local visibility campaigns',
+      ],
+      goal: 'Position Damahe Construction as a recognized builder brand in Nagpur, increase social presence, generate genuine leads, and scale the business through digital marketing.',
+      results: [
+        'Improved brand identity',
+        'Increased local visibility',
+        'Better engagement and audience growth',
+        'Consistent lead generation through social media and ads',
+        'Stronger positioning as a trusted builder in Nagpur',
+      ],
+    },
   },
   {
     id: 3,
@@ -32,7 +76,7 @@ const projects = [
   },
   {
     id: 4,
-    title: 'Tender Singh',
+    title: 'Elevate E-com',
     category: 'Performance Marketing',
     stats: 'Predictable Leads',
     image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800',
@@ -41,76 +85,248 @@ const projects = [
 
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState('All');
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const filteredProjects = projects.filter(
     (project) => activeCategory === 'All' || project.category === activeCategory
   );
 
-  return (
-    <section id="portfolio" className={`section ${styles.portfolioSection}`}>
-      <div className="container">
-        <div className={styles.header}>
-          <motion.h2 
-            className="section-title"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            Featured <span className="text-gradient">Case Studies</span>
-          </motion.h2>
+  const handleCardClick = (project: Project) => {
+    if (project.caseStudy) {
+      setSelectedProject(project);
+    }
+  };
 
-          <motion.div 
-            className={styles.filters}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                className={`${styles.filterBtn} ${activeCategory === cat ? styles.activeFilter : ''}`}
-                onClick={() => setActiveCategory(cat)}
-              >
-                {cat}
-              </button>
-            ))}
+  return (
+    <>
+      <section id="portfolio" className={`section ${styles.portfolioSection}`}>
+        <div className="container">
+          <div className={styles.header}>
+            <motion.h2
+              className="section-title"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              Featured <span className="text-gradient">Case Studies</span>
+            </motion.h2>
+
+            <motion.div
+              className={styles.filters}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  className={`${styles.filterBtn} ${activeCategory === cat ? styles.activeFilter : ''}`}
+                  onClick={() => setActiveCategory(cat)}
+                >
+                  {cat}
+                </button>
+              ))}
+            </motion.div>
+          </div>
+
+          <motion.div layout className={styles.grid}>
+            <AnimatePresence>
+              {filteredProjects.map((project) => (
+                <motion.div
+                  key={project.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.4 }}
+                  className={`${styles.projectCard} ${project.isLogoCard ? styles.logoCard : ''} ${project.caseStudy ? styles.clickable : ''}`}
+                  onClick={() => handleCardClick(project)}
+                  role={project.caseStudy ? 'button' : undefined}
+                  tabIndex={project.caseStudy ? 0 : undefined}
+                  onKeyDown={(e) => e.key === 'Enter' && handleCardClick(project)}
+                >
+                  <div className={styles.imageWrapper}>
+                    {project.isLogoCard ? (
+                      <div className={styles.logoWrapper}>
+                        {/* Animated background grid */}
+                        <div className={styles.gridBg} />
+                        {/* Glow orbs */}
+                        <div className={styles.glowOrb1} />
+                        <div className={styles.glowOrb2} />
+                        {/* Logo */}
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={project.logo}
+                          alt={`${project.title} Logo`}
+                          className={styles.clientLogo}
+                        />
+                        {/* Hover overlay */}
+                        <div className={styles.overlay}>
+                          <span className={styles.viewBtn}>
+                            View Case Study <ArrowUpRight size={20} />
+                          </span>
+                        </div>
+                      </div>
+                    ) : (
+                      <>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={project.image} alt={project.title} className={styles.projectImage} />
+                        <div className={styles.overlay}>
+                          <span className={styles.viewBtn}>
+                            View Case Study <ArrowUpRight size={20} />
+                          </span>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                  <div className={styles.projectInfo}>
+                    <div>
+                      <h3 className={styles.projectTitle}>{project.title}</h3>
+                      <p className={styles.projectCategory}>{project.category}</p>
+                    </div>
+                    <div className={styles.projectStats}>{project.stats}</div>
+                  </div>
+                  {project.caseStudy && (
+                    <div className={styles.clickHint}>
+                      <span>Click to read full case study</span>
+                      <ArrowUpRight size={14} />
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </AnimatePresence>
           </motion.div>
         </div>
+      </section>
 
-        <motion.div layout className={styles.grid}>
-          <AnimatePresence>
-            {filteredProjects.map((project) => (
-              <motion.div
-                key={project.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4 }}
-                className={styles.projectCard}
-              >
-                <div className={styles.imageWrapper}>
+      {/* Case Study Modal */}
+      <AnimatePresence>
+        {selectedProject && selectedProject.caseStudy && (
+          <motion.div
+            className={styles.modalBackdrop}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedProject(null)}
+          >
+            <motion.div
+              className={styles.modal}
+              initial={{ opacity: 0, scale: 0.85, y: 40 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.85, y: 40 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Header */}
+              <div className={styles.modalHeader}>
+                <div className={styles.modalLogoArea}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={project.image} alt={project.title} className={styles.projectImage} />
-                  <div className={styles.overlay}>
-                    <Link href="#contact" className={styles.viewBtn}>
-                      View Case Study <ArrowUpRight size={20} />
-                    </Link>
+                  <img src={selectedProject.logo} alt={selectedProject.title} className={styles.modalLogo} />
+                </div>
+                <button
+                  className={styles.closeBtn}
+                  onClick={() => setSelectedProject(null)}
+                  aria-label="Close case study"
+                >
+                  <X size={22} />
+                </button>
+              </div>
+
+              <div className={styles.modalBody}>
+                {/* Meta info */}
+                <div className={styles.metaGrid}>
+                  <div className={styles.metaItem}>
+                    <Building2 size={16} className={styles.metaIcon} />
+                    <div>
+                      <span className={styles.metaLabel}>Industry</span>
+                      <span className={styles.metaValue}>{selectedProject.caseStudy.industry}</span>
+                    </div>
+                  </div>
+                  <div className={styles.metaItem}>
+                    <MapPin size={16} className={styles.metaIcon} />
+                    <div>
+                      <span className={styles.metaLabel}>Location</span>
+                      <span className={styles.metaValue}>{selectedProject.caseStudy.location}</span>
+                    </div>
+                  </div>
+                  <div className={styles.metaItem}>
+                    <Target size={16} className={styles.metaIcon} />
+                    <div>
+                      <span className={styles.metaLabel}>Service</span>
+                      <span className={styles.metaValue}>{selectedProject.category}</span>
+                    </div>
                   </div>
                 </div>
-                <div className={styles.projectInfo}>
-                  <div>
-                    <h3 className={styles.projectTitle}>{project.title}</h3>
-                    <p className={styles.projectCategory}>{project.category}</p>
-                  </div>
-                  <div className={styles.projectStats}>{project.stats}</div>
+
+                {/* Overview */}
+                <div className={styles.section}>
+                  <h3 className={styles.sectionTitle}>Overview</h3>
+                  <p className={styles.sectionText}>{selectedProject.caseStudy.overview}</p>
                 </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
-      </div>
-    </section>
+
+                {/* Challenge */}
+                <div className={styles.section}>
+                  <h3 className={styles.sectionTitle}>
+                    <span className={styles.titleIcon}>⚡</span> The Challenge
+                  </h3>
+                  <p className={styles.sectionText}>{selectedProject.caseStudy.challenge}</p>
+                </div>
+
+                {/* Solution */}
+                <div className={styles.section}>
+                  <h3 className={styles.sectionTitle}>
+                    <Lightbulb size={18} className={styles.titleIconEl} /> Our Solution
+                  </h3>
+                  <ul className={styles.solutionList}>
+                    {selectedProject.caseStudy.solution.map((item, i) => (
+                      <motion.li
+                        key={i}
+                        className={styles.solutionItem}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: i * 0.07 }}
+                      >
+                        <CheckCircle2 size={16} className={styles.checkIcon} />
+                        {item}
+                      </motion.li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Goal */}
+                <div className={styles.section}>
+                  <h3 className={styles.sectionTitle}>
+                    <span className={styles.titleIcon}>🎯</span> Goal
+                  </h3>
+                  <p className={styles.sectionText}>{selectedProject.caseStudy.goal}</p>
+                </div>
+
+                {/* Results */}
+                <div className={styles.section}>
+                  <h3 className={styles.sectionTitle}>
+                    <TrendingUp size={18} className={styles.titleIconEl} /> Results
+                  </h3>
+                  <div className={styles.resultsGrid}>
+                    {selectedProject.caseStudy.results.map((result, i) => (
+                      <motion.div
+                        key={i}
+                        className={styles.resultCard}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: i * 0.08 }}
+                      >
+                        <span className={styles.resultCheck}>✓</span>
+                        {result}
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

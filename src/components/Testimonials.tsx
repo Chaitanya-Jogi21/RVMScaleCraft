@@ -28,10 +28,10 @@ const testimonials = [
   },
   {
     id: 4,
-    name: 'Priyanshu Singh',
-    role: 'Founder, Tender Singh',
+    name: 'Kirsh Kohisagar',
+    role: 'Founder, Elevate E-com',
     content: 'Lead flow became predictable. Their performance marketing setup brought us qualified leads at a much lower cost.',
-    image: 'https://ui-avatars.com/api/?name=Priyanshu+Singh&background=ff0b1a&color=fff',
+    image: 'https://ui-avatars.com/api/?name=Kirsh+Kohisagar&background=ff0b1a&color=fff',
   },
 ];
 
