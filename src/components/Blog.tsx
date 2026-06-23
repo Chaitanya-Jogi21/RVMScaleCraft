@@ -82,7 +82,7 @@ const posts: BlogPost[] = [
     excerpt: 'Moving beyond static grids and aesthetic patterns. Explore the frameworks for establishing consistency, credibility, and brand authority online.',
     date: 'May 10, 2026',
     category: 'Brand Strategy',
-    image: 'https://images.unsplash.com/photo-1542744094-3a31f103e35f?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1531535934200-873499959187?auto=format&fit=crop&q=80&w=800',
     readTime: '4 min read',
     author: 'RVM SCALECRAFT TEAM',
     content: {
