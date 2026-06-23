@@ -101,10 +101,35 @@ const projects: Project[] = [
   },
   {
     id: 4,
-    title: 'Elevate E-com',
+    title: 'Jai Malhar Human Capital',
     category: 'Performance Marketing',
     stats: 'Predictable Leads',
-    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800',
+    isLogoCard: true,
+    logo: '/jai-malhar-logo.png',
+    caseStudy: {
+      client: 'Jai Malhar Human Capital',
+      industry: 'Recruitment & Human Resource Services',
+      location: 'Nagpur, Maharashtra',
+      overview: 'Jai Malhar Human Capital is a recruitment and staffing agency based in Nagpur. They connect companies with skilled candidates and help unemployed and job-seeking individuals find suitable opportunities. They provide both blue-collar and white-collar job opportunities across various industries.',
+      challenge: 'The company had limited social media presence and needed a professional online identity to build trust and attract both job seekers and employers.',
+      solution: [
+        'Instagram page setup and optimization',
+        'Professional social media branding',
+        'Content creation and page polishing',
+        'Lead generation campaigns',
+        'Social media growth strategy',
+        'Brand awareness campaigns',
+        'Audience targeting and engagement',
+      ],
+      goal: 'Build a strong social identity, increase brand credibility, generate genuine leads, and establish Jai Malhar Human Capital as a trusted recruitment partner in Nagpur.',
+      results: [
+        'Professional social media presence established within 15 days',
+        'Improved brand credibility and visibility',
+        'Increased audience engagement',
+        'Generated genuine leads through social media and lead campaigns',
+        'Enhanced awareness among employers and job seekers',
+      ],
+    },
   },
 ];
 
