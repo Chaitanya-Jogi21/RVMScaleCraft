@@ -197,6 +197,40 @@ const projects: Project[] = [
       notes: 'Metro Arch Studio joined for a short trial period to evaluate our creative capabilities and lead generation performance. The objective was to demonstrate measurable results and establish confidence for a long-term partnership.',
     },
   },
+  {
+    id: 7,
+    title: 'Credbook',
+    category: 'Performance Marketing',
+    stats: 'Increased App Installs & Visibility',
+    isLogoCard: true,
+    logo: '/credbook-logo.png',
+    caseStudy: {
+      client: 'Credbook',
+      industry: 'FinTech / Finance Technology',
+      location: 'India',
+      overview: 'Credbook is a finance and loan-related application available on the Google Play Store and supported Android devices. The platform helps retailers, shop owners, and business owners access financial solutions and manage business-related financial requirements more efficiently.',
+      challenge: 'The application needed stronger market awareness, higher visibility among retailers and business owners, increased landing page traffic, and more application installs.',
+      solution: [
+        'Meta Ads campaigns',
+        'Google Ads campaigns',
+        'Landing page promotion',
+        'App awareness campaigns',
+        'App install campaigns',
+        'Audience targeting and retargeting',
+        'Performance marketing strategy',
+        'Brand awareness campaigns',
+      ],
+      goal: 'Spread awareness of the Credbook application, increase app installs, drive quality traffic to the landing page, and reach retailers and business owners across targeted markets.',
+      results: [
+        'Increased application visibility',
+        'Higher landing page engagement',
+        'Improved brand awareness',
+        'Growth in app install opportunities',
+        'Better reach among retailers and business owners',
+      ],
+      notes: 'Credbook partnered with us specifically to scale awareness for both their application and landing page through performance marketing campaigns. The focus was on maximizing reach, visibility, and user acquisition through strategic advertising.',
+    },
+  },
 ];
 
 export default function Portfolio() {
