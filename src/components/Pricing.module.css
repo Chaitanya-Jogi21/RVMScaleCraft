@@ -251,3 +251,29 @@
 .toggleBtn.active .discountBadge {
   color: #9c27b0;
 }
+
+@media (max-width: 767px) {
+  .toggleWrapper {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .toggleContainer {
+    width: 100%;
+    max-width: 480px;
+  }
+
+  .toggleBtn {
+    padding: 0.6rem 0.25rem;
+    font-size: 0.85rem;
+    flex-direction: column;
+    gap: 0.1rem;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .discountBadge {
+    font-size: 0.7rem;
+    padding: 0;
+  }
+}
